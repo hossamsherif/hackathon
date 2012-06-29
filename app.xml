@@ -23,38 +23,55 @@
 <!-- The hangout API JavaScript. Always include this first -->
 <script src="//hangoutsapi.talkgadget.google.com/hangouts/api/hangout.js?v=1.0"></script>
 
-<!-- The JavaScript for this app. This must always be a full URL not a
-     relative path.
-     Tip: You can load it from a local web server such as
-     http://localhost/app.js for faster single user development -->
-<script src="//YOUR_APP_ID.appspot.com/static/app.js"></script>
+    <script src="http://code.jquery.com/jquery.min.js" type="text/javascript"></script>
+        <script src="train.js" type="text/javascript"></script>
+<script type="text/javascript">
+	
+var id=1;
+function addComment(){
+var text = $('#status').val();
+	var parent= document.getElementById('comments');
+		var listItem = document.createElement('li');
+		listItem.innerHTML =
+		'<span style="color:#000000;font-family:Arial;font-size:11px;">'+
+		text
+		+'</span>'+
+		'<input type="submit" value="+1" id="B'+id+'" >'
+		parent.appendChild(listItem);
+		$("#B"+id).click(function() {
+			//alert(this.text);
+			var t=this.value.substring(1, this.value.length)
+		this.value='+'+(parseInt(t,10)+1)
+		});
+		id+=1;
+			comments.push({
+		 	    'id':'B'+id,
+				'label':thi
+			});
+		var list = document.getElementById('comments');
+		$(list).listview("refresh");
+		
+}
 
-<h1><img src="//YOUR_APP_ID.appspot.com/static/hangouts-logo.png" 
-    alt="Google+ Hangouts Logo" height="50" width="50">Starter App</h1>
-<div style="float: left; padding: 0px 20px; border-right: 1px solid #EEE">
-  <p>Collaborate with your friends to count to a big number!</p>
-  <dl>
-    <dt>Current count:</dt>
-    <dd id="count"></dd>
-    <dt>Player count:</dt>
-    <dd id="participants"></dd>
-  </dl>
 
-  <input type=button value="Click Me!" id="countButton"
-      onClick="countButtonClick()"/>
-  <input type=button value="Reset" id="resetButton"
-      onClick="resetButtonClick()"/>
-</div>
-<div style="float: left; padding: 0px 20px">
-  <p>Fetch some JSON from main.py</p>
-  <dl>
-    <dt>Message:</dt>
-    <dd id="message"></dd>
-  </dl>
-  <input type=button value="Get Message" id="getMessageButton"
-      onClick="getMessageClick()"/>
-</div>
-<div style="clear: both;"></div>
+
+
+
+	</script>
+  <ul id="comments"  >
+	</ul>
+	<label for="textarea">comment:</label>
+		<div  style="margin-top:1em;">
+	    <textarea cols="40" rows="10" name="status" id="status"></textarea>
+	    </div>
+<button onclick="addComment()">add</button>
+
+	
+  <a href="https://plus.google.com/hangouts/_?gid=APP_ID" style="text-decoration:none;">
+  <img src="https://ssl.gstatic.com/s2/oz/images/stars/hangout/1/gplus-hangout-15x79-normal.png"
+    alt="Start a Hangout"
+    style="border:0;width:79px;height:15px;"/>
+</a>
 
 ]]></Content>
 </Module>
