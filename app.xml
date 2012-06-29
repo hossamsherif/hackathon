@@ -18,8 +18,7 @@
   <ModulePrefs title="Starter App">
     <Require feature="rpc"/>
   </ModulePrefs>
-  <Content type="html"><![CDATA[
-<!DOCTYPE html>
+  <Content type="html">
 <!-- The hangout API JavaScript. Always include this first -->
 <script src="//hangoutsapi.talkgadget.google.com/hangouts/api/hangout.js?v=1.0"></script>
 
@@ -73,5 +72,5 @@ var text = $('#status').val();
     style="border:0;width:79px;height:15px;"/>
 </a>
 
-]]></Content>
+</Content>
 </Module>
